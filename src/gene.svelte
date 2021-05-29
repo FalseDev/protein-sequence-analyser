@@ -8,12 +8,12 @@
     for (let key in genes){
       counter[key] = 0
     }
-    let cleansed = inputValue.replace(/[, ]/g, "")
+    let cleansed = inputValue.replace(/[\s,]/g, "")
     output = "";
     for (let i = 0; i < cleansed.length; i++) {
       let key = cleansed[i].toUpperCase();
       if (!(key in counter)){
-        output = `Unknown gene ${key}`
+        output = `Unknown Amino Acid ${key}`
         break
       } 
       counter[key] += 1
@@ -45,7 +45,7 @@
   <div>
     <textarea
       bind:value={inputValue}
-      placeholder="Enter Genes here"
+      placeholder="Enter Protein Sequence here"
       id="gene-input"
     />
   </div>
